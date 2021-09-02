@@ -380,9 +380,7 @@ function toggleTab() {
     }
   }
   toggleTab();
-
   //функция запуска видео о бренде
-
   function brandVideo () {
     const videoBtn = document.querySelector('.video__btn');
     const meet = document.querySelector('.meet');
@@ -402,52 +400,24 @@ function toggleTab() {
       videoPoster.style.display = 'none';      
     })
   }
-  brandVideo1 ();
-// функция плавного скроллинга
-  // function scrollTo() {
-  //   const anchors = document.querySelectorAll("a.scrollto");
-  //   anchors.forEach((anchor) => {
-  //     anchor.addEventListener("click", function (e) {
-  //       e.preventDefault();
-  //       const blockID = anchor.getAttribute("href");
-  //       document.querySelector(blockID).scrollIntoView({
-  //         behavior: "smooth",
-  //         block: "start",
-  //       });
-  //     });
-  //   });
-  // }
-  //end of scrollTo  
-
-  function scrollTo() {
-    const anchors = document.querySelectorAll("a.scrollto");
-    anchors.forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const blockID = anchor.getAttribute("href");        
-        let gotoBlock = document.querySelector(blockID);
-        console.log (gotoBlock);
-        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.sticky-back').offsetHeight;
-        console.log (gotoBlockValue);
-        window.scrollTo({
-          top: 1000,
-          behavior: "smooth"
-      });       
-      });
-    });
-  }
-
-
-
-    //функция для отработки действий при скролле
+  brandVideo1 (); 
+  //функция для отработки действий при скролле
     function scrollAсtion() {
       window.addEventListener("scroll", () => {        
         // if (document.documentElement.clientWidth > 1000) {
+          if (document.documentElement.clientWidth > 768) {
           elemAnimate(".h2", "titleAnimation");
+           }          
           elemAnimate(".brand__text", "appear-up"); 
-          elemAnimate(".brand__info", "appear-up-info");   
-          elemAnimate(".brand__info::after", "titleAnimation");
-
+          elemAnimate(".brand__info", "appear-up-info");
+          elemAnimate(".result-slide_slide1", "in-scale_slide1");
+          elemAnimate(".result-slide_slide2", "in-scale_slide2");
+          elemAnimate(".result-slide_slide3", "in-scale_slide3");
+          elemAnimate(".result-slide_slide3", "in-scale_slide3");          
+           if (document.documentElement.clientWidth > 900) {
+             elemAnimate(".result-slider__next", "in-scale_arrow-next");
+            }
+          
         // }           
       });
     }
@@ -468,19 +438,20 @@ function toggleTab() {
         }
       });
     }  
-    scrollTo();
-    scrollAсtion();
+scrollAсtion();
 function menuFixed() {
 window.onscroll = function() {
 const menu = document.querySelector('.menu');
 const back = document.querySelector('.sticky-back');
-
 let sticky = menu.offsetTop;
 if (window.pageYOffset > sticky) {
   menu.classList.add("sticky");
   const stickyMenu = document.querySelector('.sticky');
-  back.style.visibility='visible';
+  if (document.documentElement.clientWidth > 768) {
+    back.style.visibility='visible';
   back.style.opacity='1';
+   }
+  
   stickyMenu.style.opacity='1';
 } else {
   menu.classList.remove("sticky");
@@ -505,3 +476,21 @@ window.addEventListener('scroll', () => {
 		});
 	}
 });
+//функция плавной прокрутки к секции с учетом плавающего меню
+function scrollToSection() {
+  const anchors = document.querySelectorAll("a.scrollto");      
+        anchors.forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {  
+            e.preventDefault();       
+            const blockID = anchor.getAttribute("href");
+            let gotoBlock = document.querySelector(blockID);
+            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.sticky-back').offsetHeight;
+            window.scrollTo({
+              top: gotoBlockValue,
+              behavior: "smooth"
+          });        
+          });
+        });
+      }  
+  //end of scrollToSection()
+      scrollToSection();
