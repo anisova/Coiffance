@@ -392,24 +392,11 @@ img {
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-}
-
-.btn_header {
-  background-color: transparent;
-  border: 1px solid #FFFFFF;
-  padding: 15px 40px;
-  -webkit-transition: 0.5s ease;
-  -o-transition: 0.5s ease;
-  transition: 0.5s ease;
   position: relative;
   overflow: hidden;
-  -webkit-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-          transform: scale(0.9);
-  opacity: 0;
 }
 
-.btn_header::after {
+.btn::after {
   background: #8E8E8E;
   content: "";
   height: 155px;
@@ -429,19 +416,34 @@ img {
           box-shadow: 0 0 10px #8E8E8E;
 }
 
-.btn_header:hover {
+.btn:hover {
   -webkit-box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
           box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
   color: #ffd2c4;
 }
 
-.btn_header:hover::after {
+.btn:hover::after {
   left: 130%;
+}
+
+.btn_header {
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  padding: 15px 40px;
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+  overflow: hidden;
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+  opacity: 0;
 }
 
 .header {
   background-color: #595B58;
   text-align: center;
+  position: relative;
 }
 
 .header__h1 {
@@ -499,6 +501,37 @@ img {
 
 .menu__link:hover {
   color: white;
+}
+
+.menu__link.active {
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+  padding-top: 13px;
+  opacity: 1;
+  -webkit-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+
+.sticky-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  -webkit-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
 }
 
 .meet {
@@ -724,6 +757,10 @@ img {
   font-size: 24px;
   line-height: 153.11%;
   position: relative;
+  -webkit-transform: translateY(30px);
+      -ms-transform: translateY(30px);
+          transform: translateY(30px);
+  opacity: 0;
 }
 
 .brand__info::after {
@@ -1683,6 +1720,13 @@ body.locked {
           animation: inScale 1s forwards;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
+}
+
+.appear-up-info {
+  -webkit-animation: appearanceUp 1.5s forwards;
+          animation: appearanceUp 1.5s forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 @media (max-width: 1440px) {

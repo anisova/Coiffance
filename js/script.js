@@ -404,31 +404,51 @@ function toggleTab() {
   }
   brandVideo1 ();
 // функция плавного скроллинга
+  // function scrollTo() {
+  //   const anchors = document.querySelectorAll("a.scrollto");
+  //   anchors.forEach((anchor) => {
+  //     anchor.addEventListener("click", function (e) {
+  //       e.preventDefault();
+  //       const blockID = anchor.getAttribute("href");
+  //       document.querySelector(blockID).scrollIntoView({
+  //         behavior: "smooth",
+  //         block: "start",
+  //       });
+  //     });
+  //   });
+  // }
+  //end of scrollTo  
+
   function scrollTo() {
     const anchors = document.querySelectorAll("a.scrollto");
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const blockID = anchor.getAttribute("href");
-        document.querySelector(blockID).scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        const blockID = anchor.getAttribute("href");        
+        let gotoBlock = document.querySelector(blockID);
+        console.log (gotoBlock);
+        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.sticky-back').offsetHeight;
+        console.log (gotoBlockValue);
+        window.scrollTo({
+          top: 1000,
+          behavior: "smooth"
+      });       
       });
     });
   }
-  //end of scrollTo  
+
+
+
     //функция для отработки действий при скролле
     function scrollAсtion() {
-      window.addEventListener("scroll", () => {
-        
+      window.addEventListener("scroll", () => {        
         // if (document.documentElement.clientWidth > 1000) {
-          elemAnimate(".h2", "titleAnimation");   
-          elemAnimate(".video__content", "appear-up"); 
-          elemAnimate(".brand__text", "appear-up");
-             
-        // }
-           
+          elemAnimate(".h2", "titleAnimation");
+          elemAnimate(".brand__text", "appear-up"); 
+          elemAnimate(".brand__info", "appear-up-info");   
+          elemAnimate(".brand__info::after", "titleAnimation");
+
+        // }           
       });
     }
     //Функция, которая проверяет, появился ли элемент в области видимости
@@ -443,11 +463,45 @@ function toggleTab() {
     function elemAnimate(elemClass, animationClass) {
       let el = document.querySelectorAll(elemClass);
       el.forEach((element) => {
-        if (isPartiallyVisible(element)) {
-          
+        if (isPartiallyVisible(element)) {          
           element.classList.add(animationClass);
         }
       });
     }  
     scrollTo();
     scrollAсtion();
+function menuFixed() {
+window.onscroll = function() {
+const menu = document.querySelector('.menu');
+const back = document.querySelector('.sticky-back');
+
+let sticky = menu.offsetTop;
+if (window.pageYOffset > sticky) {
+  menu.classList.add("sticky");
+  const stickyMenu = document.querySelector('.sticky');
+  back.style.visibility='visible';
+  back.style.opacity='1';
+  stickyMenu.style.opacity='1';
+} else {
+  menu.classList.remove("sticky");
+  back.style.visibility='hidden';
+  back.style.opacity='0';  
+}
+};
+}
+menuFixed();    
+window.addEventListener('scroll', () => {
+	let scrollDistance = window.scrollY;  
+	if (window.innerWidth > 768) {
+		document.querySelectorAll('.section').forEach((el, i) => {
+			if (el.offsetTop - document.querySelector('.menu').clientHeight <= scrollDistance) {
+				document.querySelectorAll('.menu__link').forEach((el) => {
+					if (el.classList.contains('active')) {
+						el.classList.remove('active');
+					}
+				});
+				document.querySelectorAll('.menu__item')[i].querySelector('a').classList.add('active');
+			}
+		});
+	}
+});
