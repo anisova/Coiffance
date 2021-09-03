@@ -238,16 +238,14 @@ function toggleModal(modalWindow, openButton, closeButton) {
       const closeBtn = modal.querySelector(closeButton);    
       openBtns.forEach(btn => {
       btn.addEventListener("click", (e) => {           
-      e.preventDefault();
-      modal.style.display = "flex";
+      e.preventDefault();      
       document.body.style.overflowY = "hidden";   
-       
+      modal.classList.add('active');
     });
     });  
-      closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";       
-        document.body.style.overflowY = "";  
-             
+      closeBtn.addEventListener("click", () => {              
+        document.body.style.overflowY = "";
+        modal.classList.remove('active');
       });
       modal.addEventListener("click", (e) => {
         if (e.target === modal) {
@@ -265,17 +263,18 @@ function thanksModal(modalWindow, openButton, closeButton) {
       openBtns.forEach(btn => {
       btn.addEventListener("click", (e) => {           
       e.preventDefault();
-      modal.style.display = "flex";
-      document.body.style.overflow = "hidden";  
+      document.body.style.overflowY = "";
+      modal.classList.add('active'); 
       btn.setAttribute("disabled", "disabled");
       setTimeout(() => closeBtn.click(), 3000);
     });
     });  
-      closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-        // document.body.style.overflow = "";
+      closeBtn.addEventListener("click", () => {       
+        modal.classList.remove('active');
+        document.body.style.overflowY = "";
         const formModal = document.querySelector('.form-modal');  
-        formModal.style.display = "none";
+                formModal.classList.remove('active');
+        
       });
       modal.addEventListener("click", (e) => {
         if (e.target === modal) {
@@ -306,7 +305,7 @@ function thanksModal(modalWindow, openButton, closeButton) {
       closeBtn.addEventListener("click", () => {
         // stopVideo1();
         modal.style.display = "none";       
-        document.body.style.overflowY = "";  
+        document.body.style.overflowY = "";          
              
       });
       modal.addEventListener("click", (e) => {
@@ -494,3 +493,5 @@ function scrollToSection() {
       }  
   //end of scrollToSection()
       scrollToSection();
+
+  //увеличение активного слайда при наведении
