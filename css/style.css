@@ -586,16 +586,16 @@ img {
 }
 
 .btn_section {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   opacity: 0.9;
 }
 
 .btn_section:hover {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
           box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
   opacity: 1;
@@ -1710,15 +1710,15 @@ img {
   padding: 12px 61px;
   text-align: center;
   margin-bottom: 5px;
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .submit-btn:hover {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 }
