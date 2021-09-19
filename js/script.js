@@ -3,6 +3,7 @@ const resultSwiper = new Swiper('.result-slider', {
     direction: 'horizontal',
     loop: true,
     slideToClickedSlide: true,    
+    // centeredSlides:true,
     navigation: {
       nextEl: '.result-slider__next',
       prevEl: '.result-slider__prev',
@@ -19,8 +20,7 @@ const resultSwiper = new Swiper('.result-slider', {
       },
       900: {
         slidesPerView: 3,
-        spaceBetween: 30,
-        autoHeight:true, 
+        spaceBetween: 30,        
       }
     }
   });
@@ -33,16 +33,16 @@ swiperNext.addEventListener('click', () => {
   resultSwiper.slideNext();
 })
 //Инициализация  слайдера library
-window.onload = function() {
+// window.onload = function() {
 const librarySwiper = new Swiper('.library-slider', {
   direction: 'horizontal',
   loop: true,
   slideToClickedSlide: true,
   autoHeight:true,  
   centeredSlides:true,
-  observer:true,
-  observeParents:true,
-  observeSlideChildren:true,
+  // observer:true,
+  // observeParents:true,
+  // observeSlideChildren:true,
   navigation: {
     nextEl: '.library-slider__next',
     prevEl: '.library-slider__prev',
@@ -183,7 +183,7 @@ const productsSwiper = new Swiper('.products-slider', {
     }
   }
 });
-}
+// }
   function ham(){
     const ham=document.querySelector('.hamburger');
     const ham_menu=document.querySelector('.ham-menu');
@@ -362,16 +362,16 @@ toggleModal(".policy-modal", ".btn_policy", ".btn-close");
   //end of scrollToSection()
   scrollToSection();
   // функция для работы модальных окон с видео
-function videoModal(modalWindow, openButton, closeButton,link) {
-  const openBtns = document.querySelectorAll(openButton);    
+function videoModal(modalWindow, openButton, closeButton,link) {  
+  const openBtns = document.querySelectorAll(openButton);  
     const modal = document.querySelector(modalWindow);      
     if (modal) {
       const closeBtn = modal.querySelector(closeButton);    
       openBtns.forEach(btn => {
-      btn.addEventListener("click", (e) => {           
+      btn.addEventListener("click", (e) => {               
       e.preventDefault();      
       const content = document.querySelector('.video-modal__content');
-      content.insertAdjacentHTML('afterbegin', `<iframe class ="video" width="960" height="540" src=${link} title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>`);     
+      content.insertAdjacentHTML('afterbegin', `<iframe class ="video"  src=${link} title="YouTube video player" frameborder="0" allow=autoplay allowfullscreen></iframe>`);     
       modal.classList.add('active');
       document.body.style.overflowY = "hidden";
     });
@@ -404,7 +404,6 @@ videoModal('.video-modal','.placeholder3-2','.btn-close_white','https://www.yout
 videoModal('.video-modal','.placeholder4-1','.btn-close_white','https://www.youtube.com/embed/ugu_ulLDwIc?autoplay=1');
 videoModal('.video-modal','.placeholder4-2','.btn-close_white','https://www.youtube.com/embed/k8FEPKZ0Vvs?autoplay=1');
 videoModal('.video-modal','.placeholder5-1','.btn-close_white','https://www.youtube.com/embed/VPOfq2mEP6k?autoplay=1');
-// videoModal('.video-modal','.placeholder5-2','.btn-close_white','https://www.youtube.com/embed/k8FEPKZ0Vvs?autoplay=1');
 videoModal('.video-modal','.placeholder5-3','.btn-close_white','https://www.youtube.com/embed/ek8EgMC4u_M?autoplay=1');
 videoModal('.video-modal','.placeholder5-4','.btn-close_white','https://www.youtube.com/embed/eT4bsvOKGCo?autoplay=1');
 videoModal('.video-modal','.placeholder5-5','.btn-close_white','https://www.youtube.com/embed/XRikMseKDF0?autoplay=1');

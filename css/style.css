@@ -518,6 +518,11 @@ img {
   display: none;
 }
 
+.video {
+  width: 960px;
+  height: 540px;
+}
+
 .btn {
   padding: 17px 57px;
   background-color: black;
@@ -772,12 +777,15 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: auto;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .result-slider .swiper-slide {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  height: 100%;
 }
 
 .results {
@@ -848,23 +856,23 @@ img {
           transform: rotateY(180deg);
 }
 
+.result-slider {
+  height: auto;
+}
+
 .result-slider__arrows {
   position: relative;
 }
 
-.result-slider > .swiper-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 0;
-}
-
 .result-slide {
   background-color: white;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
   -webkit-transform: scale(0.98);
       -ms-transform: scale(0.98);
           transform: scale(0.98);
   opacity: 0;
+  height: auto;
 }
 
 .result-slide__pic {
@@ -891,6 +899,13 @@ img {
 
 .result-slide__text {
   line-height: 23px;
+}
+
+.result-slide_base {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
 }
 
 .brand {
@@ -1008,7 +1023,6 @@ img {
 .library-slider .library-slide {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  height: 100%;
   width: 830px;
   position: relative;
 }
@@ -1606,6 +1620,11 @@ img {
           justify-content: center;
 }
 
+.video-modal__content {
+  width: 960px;
+  height: 540px;
+}
+
 .video-modal.active {
   visibility: visible;
 }
@@ -2154,11 +2173,26 @@ body.locked {
 }
 
 @media (max-width: 900px) {
+  .video {
+    width: 98vw;
+    height: 500px;
+  }
+
   .result-container .result-slider__next {
     opacity: 1;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
+  }
+
+  .btn-close_white {
+    top: 15px;
+    right: 15px;
+  }
+
+  .video-modal__content {
+    width: 98vw;
+    height: 500px;
   }
 }
 
@@ -2307,11 +2341,6 @@ body.locked {
 
   .form-modal__container {
     width: 90%;
-  }
-
-  .btn-close_white {
-    top: 15px;
-    right: 15px;
   }
 
   .policy-modal__container {
@@ -2529,6 +2558,10 @@ body.locked {
 
   .brand__info {
     font-size: 14px;
+  }
+
+  .library-slider .library-slide {
+    min-height: 53vw;
   }
 
   .advantages__socials {
