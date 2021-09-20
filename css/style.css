@@ -391,7 +391,9 @@ img {
 
 .policy > p {
   margin-bottom: 10px;
-  line-height: 1;
+  line-height: 1.1;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .youtube-btn {
