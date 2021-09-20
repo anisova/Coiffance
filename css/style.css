@@ -1211,7 +1211,8 @@ img {
           align-items: flex-end;
 }
 
-.footer__phone {
+.footer__phone,
+.footer__email {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -1224,7 +1225,8 @@ img {
   transition: color 0.5s ease;
 }
 
-.footer__phone:hover {
+.footer__phone:hover,
+.footer__email:hover {
   color: white;
 }
 
@@ -1331,6 +1333,20 @@ img {
 
 .footer__link_active {
   color: white;
+}
+
+.email-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 14px;
+  width: 100%;
 }
 
 .care-slider {
